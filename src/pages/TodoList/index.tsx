@@ -1,8 +1,12 @@
-import React from 'react';
+import * as React from 'react';
+
+import { TodoListProvider } from '../../store/todoListStore';
 
 const TodoList = () => {
   return (
-    <div></div>
+    <TodoListProvider>
+
+    </TodoListProvider>
   );
 };
 
