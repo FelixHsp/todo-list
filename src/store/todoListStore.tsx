@@ -1,5 +1,10 @@
 import * as React from "react";
-import { IInitalTodoListState, TodoListReducer, ETodoListDispatchType } from '../types/todoList';
+import {
+  IInitalTodoListState,
+  TodoListReducer,
+  ETodoListDispatchType,
+  TodoListAction
+} from '../types/todoList';
 
 const initalTodoListState: IInitalTodoListState = {
   todoList: [],
@@ -81,7 +86,7 @@ export const todoListReducer: TodoListReducer = (state, action) => {
 };
 
 const TodoListStateContext = React.createContext(initalTodoListState);
-const TodoListDispatchContext = React.createContext(({}) => {});
+const TodoListDispatchContext = React.createContext((action: TodoListAction) => {});
 
 const TodoListProvider: React.FC = (props) => {
   const [todoListState, todoListDispatch] = React.useReducer<TodoListReducer>(todoListReducer, initalTodoListState);
