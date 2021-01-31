@@ -40,7 +40,7 @@ const DoneList: React.FC = () => {
           doneList.map((todoItem, index) => {
             return (
               <ListItem
-                key={`todo-item-${todoItem.id}`}
+                key={`done-item-${todoItem.id}`}
                 text={todoItem.text}
                 type={'done'}
                 onChangeStatus={() => onChangeStatus(index)}
