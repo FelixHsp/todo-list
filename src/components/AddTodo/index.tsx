@@ -8,9 +8,9 @@ import React, { useRef, useCallback, memo } from 'react';
 import { Button, Message } from '@alifd/next';
 import TodoInput, { ITodoInputRef } from '@/components/TodoInput';
 
-import { useTodoListDispatch } from '../../store/todoListStore';
+import { useTodoListDispatch } from '@/store/todoListStore';
 
-import { ETodoListDispatchType } from '../../types/todoList';
+import { ETodoListDispatchType } from '@/types/todoList';
 
 const AddTodo: React.FC = () => {
   const todoListDispatch = useTodoListDispatch();

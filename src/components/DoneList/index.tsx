@@ -7,9 +7,9 @@ import React, { useCallback, useMemo } from 'react';
 
 import ListItem from '@/components/ListItem';
 
-import { useTodoListState, useTodoListDispatch } from '../../store/todoListStore';
+import { useTodoListState, useTodoListDispatch } from '@/store/todoListStore';
 
-import { ETodoListDispatchType } from '../../types/todoList';
+import { ETodoListDispatchType } from '@/types/todoList';
 
 const DoneList: React.FC = () => {
   const todoListState = useTodoListState();

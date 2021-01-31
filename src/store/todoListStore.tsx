@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { createContext, useReducer, useContext } from "react";
 
 import {
   IInitalTodoListState,
@@ -88,11 +88,11 @@ export const todoListReducer: TodoListReducer = (state, action) => {
 };
 
 /** init context */
-const TodoListStateContext = React.createContext(initalTodoListState);
-const TodoListDispatchContext = React.createContext((action: TodoListAction) => {});
+const TodoListStateContext = createContext(initalTodoListState);
+const TodoListDispatchContext = createContext((action: TodoListAction) => {});
 
 const TodoListProvider: React.FC = (props) => {
-  const [todoListState, todoListDispatch] = React.useReducer<TodoListReducer>(todoListReducer, initalTodoListState);
+  const [todoListState, todoListDispatch] = useReducer<TodoListReducer>(todoListReducer, initalTodoListState);
   
   return (
     <TodoListStateContext.Provider value={todoListState}>
@@ -105,11 +105,11 @@ const TodoListProvider: React.FC = (props) => {
 
 /** custome hooks */
 const useTodoListState = () => {
-  return React.useContext(TodoListStateContext);
+  return useContext(TodoListStateContext);
 };
 
 const useTodoListDispatch = () => {
-  return React.useContext(TodoListDispatchContext);
+  return useContext(TodoListDispatchContext);
 };
 
 export {
