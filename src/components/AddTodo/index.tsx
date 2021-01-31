@@ -1,6 +1,11 @@
+/**
+ * @file 添加todo
+ * @author Felix
+ */
+
 import React, { useRef, useCallback, memo } from 'react';
 
-import { Button } from '@alifd/next';
+import { Button, Message } from '@alifd/next';
 import TodoInput, { ITodoInputRef } from '@/components/TodoInput';
 
 import { useTodoListDispatch } from '../../store/todoListStore';
@@ -16,11 +21,22 @@ const AddTodo: React.FC = () => {
       return;
     }
 
+    const todoInputValue = todoInputRef.current.getValue();
+
+    if (!todoInputValue) {
+      Message.show({
+        type: 'error',
+        content: '当前输入为空',
+        hasMask: true
+      });
+      return;
+    };
+
     todoListDispatch({
       type: ETodoListDispatchType.ADD_TODO,
       todoItem: {
         id: Date.now(),
-        text: todoInputRef.current.getValue()
+        text: todoInputValue
       }
     });
     todoInputRef.current.clear();

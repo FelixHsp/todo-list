@@ -39,12 +39,12 @@ export const todoListReducer: TodoListReducer = (state, action) => {
       };
     }
     case ETodoListDispatchType.RESET_TODO: {
-      const doneIndex = state.todoList.findIndex(doneItem => {
+      const doneIndex = state.doneList.findIndex(doneItem => {
         return doneItem.id === action.doneItem.id
       });
       const newTodoList = [...state.todoList];
       const newDoneList = [...state.doneList];
-      
+
       newTodoList.push(newDoneList[doneIndex]);
       newDoneList.splice(doneIndex, 1);
 

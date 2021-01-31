@@ -1,9 +1,9 @@
-import TodoList from '@/pages/TodoList';
+import Todo from '@/pages/Todo';
 
 const routerConfig = [
   {
     path: '/',
-    component: TodoList,
+    component: Todo,
   },
 ];
 
